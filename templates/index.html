@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	 <meta charset="UTF-8"/>
+	<title> Elasticsearch Expoter UI </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <style>
+		.div-inline{  display:inline-block; }
+
+	</style>
+</head>
+<body>
+
+<section class="container">
+
+
+<form action="/process" class="needs-validation" method="POST" novalidate>
+  <div class="form-group">
+    <label for="server_url">Server Url:</label>
+    <input type="text" class="form-control" id="server_url" placeholder="Enter Server Url" name="server_url" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group">
+    <label for="index">Index:</label>
+    <input type="text" class="form-control" id="index" placeholder="Enter index" name="index" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group">
+    <label for="query">Index:</label>
+    <textarea  class="form-control" id="query" placeholder="Enter query" name="query" required /></textarea>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+
+<!--<div class="dropdown div-inline">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Type
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">CSV</a>
+    <a class="dropdown-item" href="#">JSON</a>
+  </div>
+</div> -->
+  <button type="submit" class="btn btn-primary">EXPORT</button> (CSV)
+</form>
+
+</section>
+<script>
+	// Disable form submissions if there are invalid fields
+	(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script> 
+</body>
+</html>
