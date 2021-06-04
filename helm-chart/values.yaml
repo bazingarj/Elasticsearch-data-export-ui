@@ -1,0 +1,23 @@
+meta:
+  name: elasticsearch-data-export-ui
+  label: elasticsearch-data-export-ui
+  namespace: production
+  replicas: 1
+  maxReplicas: 1
+image:
+  repository: bazingarj/elasticsearch-data-export-ui
+  tag: "1.0"
+resources:
+  requests:
+    cpu: 100
+    memory: 128
+  limits:
+    cpu: 200
+    memory: 256
+  targetAverageUtilization: 80
+service:
+  type: NodePort
+  port: 80
+  targetport: 8000
+env:
+  HOST: ""

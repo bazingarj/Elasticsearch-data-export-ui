@@ -3,15 +3,17 @@ from elasticsearch import Elasticsearch
 es = Elasticsearch()
 
 doc = {
-    'eventName': 'event_a',
-    'eventValue': {"custom_key":1},
-    'timestamp': datetime.now(),
+    'name': 'event_a',
+    'value': {"custom_key":1},
+    'j':'k',
+    'timestamp': datetime.now()
 }
 
 index= 'logs'
-total= 11000
+startAt=0
+total= 200
 
-for i in range(5000,total):
+for i in range(startAt,total):
 	res = es.index(index=index, id=i, body=doc)
 	#print(res['result'])
 

@@ -1,0 +1,26 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.meta.name }}
+  namespace: {{ .Values.meta.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.meta.label }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.meta.label }}
+    spec:
+      containers:
+        - name: {{ .Values.meta.label }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory }}Mi
+              cpu: {{ .Values.resources.requests.cpu }}m
+            limits:
+              memory: {{ .Values.resources.limits.memory }}Mi
+              cpu: {{ .Values.resources.limits.cpu }}m

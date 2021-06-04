@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 1.0.0
+description: THis helm chart is used to export data from elasticsearch by query
+maintainers:
+- email: 
+  name: 
+name: elasticsearch-data-export-ui
+type: application
+version: 0.1.0
